@@ -8,6 +8,38 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <form class="form">
+      <label class="delay-label">
+        <span>Delay (ms)</span>
+        <input class="form-state input" type="number" name="delay" required />
+      </label>
+
+      <fieldset class="form-state">
+        <legend>State</legend>
+        <label>
+          <input
+            class="stateLabel"
+            type="radio"
+            name="state"
+            value="fulfilled"
+            required
+          />
+          Fulfilled
+        </label>
+        <label>
+          <input
+            class="stateLabel"
+            type="radio"
+            name="state"
+            value="rejected"
+            required
+          />
+          Rejected
+        </label>
+      </fieldset>
+
+      <button class="form-state" type="submit">Create notification</button>
+    </form>
     <script type="module" src="./js/02-snackbar.js"></script>
   </body>
 </html>
