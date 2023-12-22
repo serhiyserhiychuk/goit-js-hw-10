@@ -47,7 +47,7 @@ function timerHandler(event) {
     event.preventDefault();
     startButton.disabled = true;
     let ms = datePicker.selectedDates[0].getTime() - new Date().getTime();
-    if (secondSpan.textContent === '1') {
+    if (ms <= 1000) {
       clearInterval(intervalId);
     }
     daySpan.textContent = convertMs(ms).days;

@@ -9,11 +9,12 @@ form.addEventListener('submit', submitHandler);
 
 function submitHandler(event) {
   event.preventDefault();
+  let promiseTimer = delayInput.value;
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (stateLabels[0].checked) {
         iziToast.success({
-          message: `✅ Fulfilled promise in ${delayInput.value}ms`,
+          message: `✅ Fulfilled promise in ${promiseTimer}ms`,
           messageColor: 'white',
           messageSize: '16px',
           messageLineHeight: '1.5',
@@ -24,7 +25,7 @@ function submitHandler(event) {
         });
       } else {
         iziToast.error({
-          message: `❌ Rejected promise in ${delayInput.value}ms`,
+          message: `❌ Rejected promise in ${promiseTimer}ms`,
           messageColor: 'white',
           messageSize: '16px',
           messageLineHeight: '1.5',
@@ -34,8 +35,8 @@ function submitHandler(event) {
           position: 'topRight',
         });
       }
-    }, delayInput.value);
+    }, promiseTimer);
   });
-
+  delayInput.value = '';
   promise.then(value => console.log(value)).catch(error => console.log(error));
 }
